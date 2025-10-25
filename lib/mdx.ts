@@ -3,6 +3,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 import { extractHeadings } from "./toc";
+import { notFound } from "next/navigation";
 
 if (process.platform === "win32") {
   process.env.ESBUILD_BINARY_PATH = path.join(
@@ -27,7 +28,13 @@ export async function getMdxSource(slug: string, locale: string = "en") {
     "content/blog",
     `${slug}.${locale}.mdx`,
   );
-  const source = await fs.promises.readFile(postsDirectory, "utf8");
+  let source;
+  try {
+    source = await fs.promises.readFile(postsDirectory, "utf8");
+  } catch (error: unknown) {
+    console.log(error);
+    notFound();
+  }
   const { content, data } = matter(source);
   const headings = extractHeadings(content);
   return { content, frontmatter: data, headings };
