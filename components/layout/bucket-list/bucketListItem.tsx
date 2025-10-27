@@ -4,15 +4,24 @@ import Image from "next/image";
 interface BucketListItemProps {
   isCompleted: boolean;
   children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
 }
-function BucketListItem({ isCompleted, children }: BucketListItemProps) {
+function BucketListItem({
+  isCompleted,
+  children,
+  className,
+  style = {},
+}: BucketListItemProps) {
   return (
-    <div className="flex gap-2">
+    <div className={cn("flex gap-2", className)} style={style}>
       <div
         className={cn(
           "relative mt-1 size-4 shrink-0 rounded-md",
           isCompleted ? "bg-primary/60" : "bg-muted-foreground-subtle/30",
         )}
+        aria-checked={isCompleted}
+        role="checkbox"
       >
         {isCompleted && (
           <Image
