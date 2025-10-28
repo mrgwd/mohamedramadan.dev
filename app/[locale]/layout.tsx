@@ -8,6 +8,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { ViewTransition } from "react";
+import GTag from "@/scripts/gtag";
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -62,6 +63,7 @@ export default async function RootLayout({
           <ViewTransition>{children}</ViewTransition>
         </NextIntlClientProvider>
         <ConsoleBanner />
+        <GTag />
       </body>
     </html>
   );
