@@ -2,8 +2,8 @@ import { useTranslations } from "next-intl";
 import ExternalLink from "../ui/externalLink";
 import { Link } from "@/i18n/routing";
 
-export default function CurrentActivities() {
-  const t = useTranslations("home.currentActivities");
+export default function Now() {
+  const t = useTranslations("home.now");
   return (
     <section data-fade-2>
       <h2 className="text-foreground mb-2 font-medium">{t("title")}</h2>
