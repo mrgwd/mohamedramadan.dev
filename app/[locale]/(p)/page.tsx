@@ -1,4 +1,4 @@
-import CurrentActivities from "@/components/layout/currentActivities";
+import Now from "@/components/layout/now";
 import ExternalLink from "@/components/ui/externalLink";
 import HeroSection from "@/components/layout/heroSection";
 import RecentPosts from "@/components/layout/recentPosts";
@@ -11,6 +11,7 @@ import {
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { ViewTransition } from "react";
+import { SOCIALS } from "@/constants/social";
 
 export default function Home() {
   const t = useTranslations("home");
@@ -63,27 +64,30 @@ export default function Home() {
             </ExternalLink>
             <ExternalLink
               className="group"
-              href="https://www.twitter.com/_MuhammedR"
+              href={`https://www.x.com/${SOCIALS.twitter}`}
             >
               <TwitterLogoIcon
                 size={20}
                 weight="duotone"
                 className="group-hover:*:text-primary *:transition-all [&>*:first-child]:opacity-0 group-hover:[&>*:first-child]:opacity-100"
               />
-              <span dir="ltr">@_MuhammedR</span>
+              <span dir="ltr">{SOCIALS.twitter}</span>
             </ExternalLink>
-            <ExternalLink className="group" href="https://www.github.com/mrgwd">
+            <ExternalLink
+              className="group"
+              href={`https://www.github.com/${SOCIALS.github}`}
+            >
               <GithubLogoIcon
                 size={20}
                 className="group-hover:*:text-primary *:transition-all [&>*:first-child]:opacity-0 group-hover:[&>*:first-child]:opacity-100"
                 weight="duotone"
               />
-              mrgwd
+              {SOCIALS.github}
             </ExternalLink>
           </div>
         </div>
       </HeroSection>
-      <CurrentActivities />
+      <Now />
       <RecentPosts />
     </div>
   );
