@@ -74,15 +74,15 @@ export default function TableOfContents({
     return headings.findIndex((h) => h.slug === activeId);
   })();
 
-  const handleScrollToHeading = (idx: number) => {
-    if (idx < 0 || idx >= headings.length) return;
-    const heading = document.getElementById(headings[idx].slug);
+  const handleScrollToHeading = (index: number) => {
+    if (index < 0 || index >= headings.length) return;
+    const heading = document.getElementById(headings[index].slug);
     console.log("scrolling to", heading);
     if (heading) {
       // Indicate we're doing a manual scroll
       justManualScroll.current = true;
-      manualActiveIndex.current = idx;
-      setActiveId(headings[idx].slug);
+      manualActiveIndex.current = index;
+      setActiveId(headings[index].slug);
       heading.scrollIntoView();
       // After a brief delay, allow intersection observer to take over again
       // This delay allows the scrollIntoView to move the heading before observer fires
@@ -122,14 +122,18 @@ export default function TableOfContents({
       </button>
 
       <ul className="ltr:-scale-x-100">
-        {headings.map((heading, idx) => {
+        {headings.map((heading, index) => {
           // Use the manually tracked index if set, fallback to intersection activeId
           const isActive =
             manualActiveIndex.current !== null
-              ? idx === manualActiveIndex.current
+              ? index === manualActiveIndex.current
               : heading.slug === activeId;
           return (
-            <li key={heading.slug}>
+            <li
+              key={heading.slug}
+              className="animate-fade-down opacity-0"
+              style={{ animationDelay: `${(index + 1) * 50}ms` }}
+            >
               <Link
                 href={`#${heading.slug}`}
                 title={heading.text}
