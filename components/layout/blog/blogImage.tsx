@@ -1,27 +1,40 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Zoom from "react-medium-image-zoom";
+import "react-medium-image-zoom/dist/styles.css";
 interface BlogImageProps extends React.ComponentPropsWithoutRef<"img"> {
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
+  className?: string;
   src: string;
+  alt: string;
+  placeholder?: "blur" | "empty";
 }
 export default function BlogImage({
-  width,
-  height,
+  width = 800,
+  height = 400,
+  className = "",
   src,
+  alt,
+  placeholder = "blur",
   ...props
 }: BlogImageProps) {
   return (
-    <figure className="my-4">
-      <Image
-        src={src}
-        width={width || 800}
-        height={height || 400}
-        alt={props.alt || ""}
-        className="mb-1 w-full cursor-zoom-in rounded object-cover"
-        {...props}
-        loading="lazy"
-      />
-      <figcaption className="text-sm italic">{props.alt}</figcaption>
+    <figure>
+      <Zoom>
+        <Image
+          src={src}
+          blurDataURL={src}
+          width={width}
+          height={height}
+          alt={alt}
+          className={cn("mb-1 w-full rounded object-cover", className)}
+          loading={props.loading || "lazy"}
+          placeholder={placeholder}
+          {...props}
+        />
+      </Zoom>
+      {alt && <figcaption className="text-sm italic">{alt}</figcaption>}
     </figure>
   );
 }
