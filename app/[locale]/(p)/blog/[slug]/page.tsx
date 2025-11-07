@@ -130,6 +130,7 @@ export default async function Post({
                     [
                       rehypeAutolinkHeadings,
                       {
+                        behavior: "wrap",
                         properties: {
                           className: [
                             "anchor max-sm:inline-block",
@@ -145,14 +146,13 @@ export default async function Post({
                           properties: {
                             className: [
                               "anchor-icon",
-                              "group-hover:*:bg-primary dark:*:bg-[#333333] *:bg-[#dddddd]",
-                              "sm:absolute max-sm:inline-block max-sm:translate-y-1",
-                              "ltr:sm:*:-translate-x-5 rtl:*:sm:translate-x-5 ltr:max-sm:translate-x-1 rtl:*:max-sm:-translate-x-1",
+                              "grayscale group-hover:grayscale-0 opacity-30 group-hover:opacity-100",
+                              "sm:absolute max-sm:inline-block",
+                              "ltr:sm:-translate-x-5 rtl:sm:translate-x-5 ltr:max-sm:translate-x-1 rtl:max-sm:-translate-x-1",
                             ],
                           },
                           children: [],
                         },
-                        behavior: "wrap",
                       },
                     ],
                   ],
