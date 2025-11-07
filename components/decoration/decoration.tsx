@@ -1,9 +1,22 @@
-import FallingStars from "./fallingStars";
+import { cn } from "@/lib/utils";
 
-export default function Decoration() {
+export default function Decoration({
+  className,
+  children,
+}: {
+  className?: string;
+  children?: React.ReactNode;
+}) {
   return (
-    <div className="layout relative -z-10 -translate-y-10 opacity-70 select-none *:absolute rtl:-scale-x-100">
-      <FallingStars />
+    <div
+      aria-hidden="true"
+      role="presentation"
+      className={cn(
+        "layout relative -z-10 -translate-y-10 opacity-70 transition-all duration-700 select-none *:absolute rtl:-scale-x-100",
+        className,
+      )}
+    >
+      {children}
       <div className="bg-decoration-accent/50 -top-24 left-0 size-80 rounded-br-full blur-[150px]"></div>
       <div
         className="border-t-decoration-secondary -top-16 size-0 -rotate-[40deg] border-x-[2rem] border-t-[16rem] border-x-transparent blur-[25px] ltr:left-16 rtl:left-16 rtl:max-sm:left-[5.5rem]"
