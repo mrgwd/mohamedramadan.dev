@@ -1,19 +1,19 @@
-import { PostMeta } from "@/types/blog";
-import fs from "fs";
 import matter from "gray-matter";
-import path from "path";
+import { join } from "path";
 import { extractHeadings } from "./toc";
 import { notFound } from "next/navigation";
+import { PostMeta } from "@/types/blog";
+import { promises } from "fs";
 
 if (process.platform === "win32") {
-  process.env.ESBUILD_BINARY_PATH = path.join(
+  process.env.ESBUILD_BINARY_PATH = join(
     process.cwd(),
     "node_modules",
     "esbuild",
     "esbuild.exe",
   );
 } else {
-  process.env.ESBUILD_BINARY_PATH = path.join(
+  process.env.ESBUILD_BINARY_PATH = join(
     process.cwd(),
     "node_modules",
     "esbuild",
@@ -23,14 +23,14 @@ if (process.platform === "win32") {
 }
 
 export async function getMdxSource(slug: string, locale: string = "en") {
-  const postsDirectory = path.join(
+  const postsDirectory = join(
     process.cwd(),
     "content/blog",
     `${slug}.${locale}.mdx`,
   );
   let source;
   try {
-    source = await fs.promises.readFile(postsDirectory, "utf8");
+    source = await promises.readFile(postsDirectory, "utf8");
   } catch (error: unknown) {
     console.log(error);
     notFound();
@@ -41,16 +41,16 @@ export async function getMdxSource(slug: string, locale: string = "en") {
 }
 
 export async function getAllMdxFiles(locale: string = "en") {
-  const postsDirectory = path.join(process.cwd(), "content/blog");
-  const filenames = await fs.promises.readdir(postsDirectory);
+  const postsDirectory = join(process.cwd(), "content/blog");
+  const filenames = await promises.readdir(postsDirectory);
 
   const posts = await Promise.all(
     filenames
       .filter((file) => file.endsWith(`.${locale}.mdx`))
       .map(async (file) => {
         const slug = file.replace(`.${locale}.mdx`, "");
-        const source = await fs.promises.readFile(
-          path.join(postsDirectory, file),
+        const source = await promises.readFile(
+          join(postsDirectory, file),
           "utf8",
         );
         const { content, data } = matter(source);
