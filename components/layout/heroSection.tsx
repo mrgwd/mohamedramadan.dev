@@ -1,6 +1,6 @@
 import { Link } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
-import React from "react";
+import React, { ViewTransition } from "react";
 
 interface HeroSectionProps {
   children: React.ReactNode;
@@ -38,13 +38,15 @@ function HeroSectionBackLink({
   className,
 }: HeroSectionBackLinkProps) {
   return (
-    <Link
-      prefetch
-      href={href}
-      className={cn("animate-fade-up absolute top-0 opacity-0", className)}
-    >
-      {children}
-    </Link>
+    <ViewTransition name="backlink">
+      <Link
+        prefetch
+        href={href}
+        className={cn("animate-fade-up absolute top-0 opacity-0", className)}
+      >
+        <h2>{children}</h2>
+      </Link>
+    </ViewTransition>
   );
 }
 
