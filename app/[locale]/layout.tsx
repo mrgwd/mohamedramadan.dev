@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
 import "../globals.css";
+import type { Metadata } from "next";
 import opengraphImage from "@/public/images/opengraph-image.jpg";
 import ConsoleBanner from "@/components/consoleBanner";
 import Decoration from "@/components/decoration/decoration";
 import FallingStars from "@/components/decoration/fallingStars";
+import GTag from "@/scripts/gtag";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { ViewTransition } from "react";
-import GTag from "@/scripts/gtag";
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -61,8 +61,8 @@ export default async function RootLayout({
             <FallingStars />
           </Decoration>
           <ViewTransition>{children}</ViewTransition>
+          <ConsoleBanner />
         </NextIntlClientProvider>
-        <ConsoleBanner />
         <GTag />
       </body>
     </html>
