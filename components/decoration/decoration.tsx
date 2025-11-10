@@ -11,6 +11,7 @@ export default function Decoration({
     <div
       aria-hidden="true"
       role="presentation"
+      id="layout-decoration"
       className={cn(
         "layout relative -z-10 -translate-y-10 opacity-70 transition-all duration-700 select-none *:absolute rtl:-scale-x-100",
         className,
