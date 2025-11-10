@@ -75,7 +75,7 @@ function DateRange({
           —
         </span>
         <span className="text-primary mx-1 translate-y-1 text-nowrap opacity-0 transition-all duration-300 ease-in-out group-hover:translate-y-0 group-hover:opacity-100">
-          {getDateDifference(dateFrom, dateTo, locale)}
+          {getDateDifference({ dateFrom, dateTo, locale })}
         </span>
       </span>{" "}
       <span className="inline-block">
