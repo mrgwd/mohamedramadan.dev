@@ -37,12 +37,7 @@ export const mdxComponents = {
     <ul className="mb-2 list-disc ltr:pl-4 rtl:pr-4" {...props} />
   ),
   li: (props: ListItemProps) => <li {...props} />,
-  em: (props: ComponentPropsWithoutRef<"em">) => (
-    <em className="font-medium" {...props} />
-  ),
-  strong: (props: ComponentPropsWithoutRef<"strong">) => (
-    <strong className="font-medium" {...props} />
-  ),
+  em: (props: ComponentPropsWithoutRef<"em">) => <em {...props} />,
   code: (props: ComponentPropsWithoutRef<"code">) => (
     <code className="bg-muted rounded px-1.5 text-sm" {...props} />
   ),
