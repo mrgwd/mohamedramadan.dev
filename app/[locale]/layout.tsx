@@ -1,10 +1,10 @@
 import "../globals.css";
 import type { Metadata } from "next";
-import opengraphImage from "@/public/images/opengraph-image.jpg";
 import ConsoleBanner from "@/components/consoleBanner";
 import Decoration from "@/components/decoration/decoration";
 import FallingStars from "@/components/decoration/fallingStars";
 import GTag from "@/scripts/gtag";
+import opengraphImage from "@/app/opengraph-image.jpg";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
