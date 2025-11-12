@@ -1,26 +1,407 @@
 @import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: oklch(0.9491 0 0);
+  --foreground: oklch(0.2223 0.006 271.1393);
+  --card: oklch(0.9702 0 0);
+  --card-foreground: oklch(0.2223 0.006 271.1393);
+  --popover: oklch(0.9911 0 0);
+  --popover-foreground: oklch(0.2223 0.006 271.1393);
+  --primary: oklch(0.5966 0.1969 293.42);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.954 0.0063 255.4755);
+  --secondary-foreground: oklch(0.1344 0 0);
+  --muted: oklch(0.9702 0 0);
+  --muted-foreground: oklch(0.2223 0.006 271.1393 / 60%);
+  --muted-foreground-subtle: oklch(0.2223 0.006 271.1393 / 40%);
+  --accent: oklch(0.9393 0.0288 266.368);
+  --accent-foreground: oklch(0.5445 0.1903 259.4848);
+  --destructive: oklch(0.629 0.1902 23.0704);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.93 0.0094 286.2156);
+  --input: oklch(0.9401 0 0);
+  --ring: oklch(0.2223 0.006 271.1393);
+  --rmiz-overlay-background: rgba(0, 0, 0, 0.1);
+
+  --animate-duration: 300ms;
+  --animate-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth scrolling for users who don't have prefers-reduced-motion enabled */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-decoration-primary: var(--color-purple-500);
+  --color-decoration-secondary: var(--color-purple-600);
+  --color-decoration-accent: var(--color-violet-700);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted-foreground-subtle: var(--muted-foreground-subtle);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --animate-fade-up: fade-up var(--animate-duration) 100ms var(--animate-easing)
+    forwards;
+  @keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-25px);
+    }
+  }
+
+  --animate-fade-left: fade-left var(--animate-duration) var(--animate-easing)
+    forwards;
+  @keyframes fade-left {
+    0% {
+      opacity: 0;
+      transform: translateX(25px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  --animate-fade-down: fade-down var(--animate-duration) var(--animate-easing)
+    forwards;
+  @keyframes fade-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-25px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  --animate-fade-right: fade-right var(--animate-duration) var(--animate-easing)
+    forwards;
+  @keyframes fade-right {
+    0% {
+      opacity: 0;
+      transform: translateX(-25px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  --animate-waving-hand: waving-hand 2.5s 1s ease-in-out forwards;
+  @keyframes waving-hand {
+    0% {
+      transform: rotate(0deg);
+    }
+    10% {
+      transform: rotate(14deg);
+    }
+    20% {
+      transform: rotate(-8deg);
+    }
+    30% {
+      transform: rotate(14deg);
+    }
+    40% {
+      transform: rotate(-4deg);
+    }
+    50% {
+      transform: rotate(10deg);
+    }
+    60% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: oklch(0.1822 0 0);
+    --foreground: oklch(0.9551 0 0);
+    --card: oklch(0.2568 0.0076 274.6528);
+    --card-foreground: oklch(0.9551 0 0);
+    --popover: oklch(0.2568 0.0076 274.6528);
+    --popover-foreground: oklch(0.9551 0 0);
+    --primary: oklch(0.5623 0.1695 291.7437);
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.294 0.013 272.9312);
+    --secondary-foreground: oklch(0.9551 0 0);
+    --muted: oklch(0.294 0.013 272.9312);
+    --muted-foreground: oklch(0.6698 0 0);
+    --muted-foreground-subtle: oklch(0.5208 0 0);
+    --accent: oklch(0.2795 0.0368 260.031);
+    --accent-foreground: oklch(0.7857 0.1153 246.6596);
+    --destructive: oklch(0.7106 0.1661 22.2162);
+    --destructive-foreground: oklch(1 0 0);
+    --border: oklch(0.3289 0.0092 268.3843);
+    --input: oklch(0.3289 0.0092 268.3843);
   }
 }
 
+/*--------HeadingsFont--------*/
+
+@font-face {
+  font-family: "HeadingsFont";
+  src: url("/fonts/TheYearofHandicrafts-Regular.otf");
+  unicode-range:
+    U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF,
+    U+200C-200D, U+2010-2011, U+204F, U+2E41, U+FDFD;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HeadingsFont";
+  src: url("/fonts/Karla-VariableFont_wght.ttf") format("truetype");
+  unicode-range:
+    U+0020-007F, U+00A0-00FF, U+0100-017F, U+0180-024F, U+1E00-1EFF,
+    U+2020-2027, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  font-display: swap;
+}
+
+/*--------AppFont--------*/
+
+@font-face {
+  font-family: "AppFont";
+  src: url("/fonts/Effra-Light.otf");
+  font-weight: 300;
+  unicode-range:
+    U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF,
+    U+200C-200D, U+2010-2011, U+204F, U+2E41, U+FDFD;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AppFont";
+  src: url("/fonts/Effra-Regular.otf");
+  font-weight: 400;
+  unicode-range:
+    U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF,
+    U+200C-200D, U+2010-2011, U+204F, U+2E41, U+FDFD;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AppFont";
+  src: url("/fonts/Effra-Bold.otf");
+  font-weight: 700;
+  unicode-range:
+    U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF,
+    U+200C-200D, U+2010-2011, U+204F, U+2E41, U+FDFD;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AppFont";
+  src: url("/fonts/Karla-VariableFont_wght.ttf") format("truetype");
+  font-weight: 300;
+  unicode-range:
+    U+0020-007F, U+00A0-00FF, U+0100-017F, U+0180-024F, U+1E00-1EFF,
+    U+2020-2027, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AppFont";
+  src: url("/fonts/Karla-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400;
+  unicode-range:
+    U+0020-007F, U+00A0-00FF, U+0100-017F, U+0180-024F, U+1E00-1EFF,
+    U+2020-2027, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AppFont";
+  src: url("/fonts/Karla-VariableFont_wght.ttf") format("truetype");
+  font-weight: 700;
+  unicode-range:
+    U+0020-007F, U+00A0-00FF, U+0100-017F, U+0180-024F, U+1E00-1EFF,
+    U+2020-2027, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  font-display: swap;
+}
+
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+}
+
+html[dir="ltr"] {
+  scrollbar-gutter: stable;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-background text-muted-foreground !overflow-y-auto bg-repeat break-words ltr:tracking-tight;
+  font-family:
+    "AppFont",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes float-fade {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--final-x), var(--final-y));
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    background-position-y: -100px;
+  }
+  to {
+    opacity: 1;
+    background-position-y: 0px;
+  }
+}
+
+h1 {
+  @apply mb-2 text-2xl font-medium;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "HeadingsFont", system-ui, sans-serif !important;
+}
+
+*::selection {
+  @apply bg-primary/30 dark:bg-primary/50 text-foreground;
+}
+
+.link {
+  @apply text-foreground decoration-foreground/70 hover:decoration-foreground underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:decoration-solid;
+}
+
+.link-decoration {
+  @apply decoration-foreground/70 hover:decoration-foreground underline decoration-dotted decoration-1 underline-offset-2 transition-all hover:decoration-solid;
+}
+
+hr {
+  @apply border-muted-foreground my-4 opacity-10;
+}
+
+.cursor-link {
+  @apply cursor-[url(../public/svg/link.svg),auto];
+}
+
+.layout {
+  @apply mx-auto w-11/12 max-w-screen-sm;
+}
+
+.not-found {
+  animation: glitch 2s ease-in-out infinite;
+  opacity: 50%;
+}
+
+.glitch {
+  animation: glitch 2s ease-in-out infinite;
+  opacity: 50%;
+  transition: all;
+  transition-duration: 700ms;
+}
+
+@keyframes glitch {
+  0% {
+    opacity: 100;
+  }
+  10% {
+    opacity: 100;
+  }
+  15% {
+    opacity: 50%;
+  }
+  17% {
+    opacity: 100;
+  }
+  19% {
+    opacity: 50%;
+  }
+  30% {
+    opacity: 100;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+#signature {
+  stroke-dasharray: 383;
+  stroke-dashoffset: -383;
+  animation: sign 0.5s ease-in-out 2s forwards;
+}
+
+@keyframes sign {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+[data-rmiz-modal-overlay="hidden"],
+[data-rmiz-modal-overlay] {
+  @apply !bg-transparent backdrop-blur;
+}
+
+[data-fade-1],
+[data-fade-2],
+[data-fade-3],
+[data-fade-4] {
+  @apply animate-fade-down opacity-0;
+}
+
+[data-fade-1] {
+  animation-delay: 100ms;
+}
+
+[data-fade-2] {
+  animation-delay: 200ms;
+}
+
+[data-fade-3] {
+  animation-delay: 300ms;
+}
+
+[data-fade-4] {
+  animation-delay: 400ms;
 }
