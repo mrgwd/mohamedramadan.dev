@@ -1,0 +1,97 @@
+---
+title: How I Built I18n Boost
+description: My Journey Building I18n Boost, the Developer-Friendly Extension that Boosts Your Productivity.
+createdAt: 2025-10-14
+id: post-002
+---
+
+If you’ve ever worked on a project that needed **internationalization (i18n)**, you know it’s both powerful and painful. i18n allows your app to support multiple languages so people across the world can use it in their own language. But while the idea is simple—replace text with translation keys—the practice is often repetitive, error-prone, and time-consuming.
+
+This is where my journey begins.
+
+## Origins
+
+A while back, I was working on a big multi-language project at my company. I was in charge of the frontend (React/Next.js), and i18n was a big requirement.
+
+At first, I thought: _“No problem, I’ll just replace text with keys and load translations.”_
+
+But then the pain started:
+
+- Constantly searching for keys inside huge JSON files.
+- Forgetting the exact key structure and making typos.
+- Reusing existing keys was harder than just writing new ones.
+- Switching between code and translation files broke my focus.
+
+What should have been a clean developer experience turned into a productivity killer.
+
+### The Spark of an Idea
+
+While struggling through this, an idea clicked:
+
+> 💡 _What if I had an extension inside my editor that boosted the i18n workflow—helping me navigate, search, and insert keys effortlessly, without leaving the code editor?_
+
+I wanted features that felt **native to the editor**—developer-friendly and familiar—so that using them felt natural, not like adding another heavy tool to the stack.
+
+That was the seed of **i18n-boost**.
+
+## Building Plan
+
+Before writing code, I defined two key boundaries:
+
+1. **Tech domain** → I would start with **React/Next.js** since that’s my main stack.
+2. **Editor domain** → I chose **VS Code (and Cursor)** because that’s where I work daily. JetBrains and Zed are great, but I needed focus.
+
+Then I listed the essential features I wished existed: quick navigation, auto completion and copy full path.
+
+### Building the First Version (with AI’s Help)
+
+To validate the idea, I built a small MVP. Here’s where AI played a role: instead of spending weeks testing the waters, I used AI as a coding assistant to quickly hack together a prototype.
+
+The goal wasn’t to make it perfect—it was to answer one question: _Is this idea worth pursuing?_
+
+And the answer was **yes**.
+
+### The Naming Struggle
+
+Naming a project is harder than writing code. Many good names were already taken.
+
+- Some friends suggested **i18n-headless**, but “headless” in programming usually means “no UI”—not a good fit.
+- Others suggested **i18n-swift**, but using a programming language name (like Swift or Express) might confuse people into thinking it was tied to that language.
+
+Finally, I landed on **i18n-boost**:
+
+- Unique (not taken).
+- Descriptive (boosts developer productivity).
+- Positive and memorable.
+
+### Gathering Feedback & Iteration
+
+After building the prototype, I shared it with some friends and teammates. Their feedback was crucial. They confirmed the pain points I felt were real, and the features were genuinely useful.
+
+That gave me the confidence to polish it further and prepare it for publishing.
+
+### Publishing the Extension
+
+The final step was shipping. Since **VS Code is the most widely used editor**, publishing to the **VS Code Marketplace** was the first target. I also made sure it’s available on **Cursor**, a fast-growing editor that many developers use.
+
+And just like that, **i18n-boost** went live. 🎉
+
+### Reflections & Takeaways
+
+Looking back, here are a few lessons from the journey:
+
+- Build tools that **feel native** to developers’ workflows. Familiarity lowers friction.
+- Validate ideas early with **MVPs**—even if they’re rough.
+- Don’t underestimate the power of a good name.
+
+Most importantly: if you feel a pain in your daily workflow, chances are thousands of other developers feel it too. That’s often where the best product ideas come from.
+
+---
+
+**i18n-boost** started as my personal attempt to solve an annoying problem. Now it’s a tool that can hopefully save developers worldwide countless hours while working on internationalized projects.
+
+You can check it out [here](https://open-vsx.org/extension/mrgwd/i18n-boost). If you liked it, consider leaving a review, this helps increase the spread of the extension.
+
+Have any **feature to request** or **bug to report**? kindly open an [issue](https://github.com/mrgwd/i18n-boost/issues/new/choose) i'll be happy to hear you.
+
+And if you’re struggling with i18n, give your productivity a little **boost** 🌐⚡.
