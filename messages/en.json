@@ -1,0 +1,272 @@
+{
+  "common": {
+    "metadata": {
+      "template": "%s | Mohamed Ramadan",
+      "default": "Mohamed Ramadan"
+    },
+    "frontendDeveloper": "Frontend Developer",
+    "frontendEngineer": "Frontend Engineer",
+    "openSource": "Open Source",
+    "uiuxDesigner": "UI/UX Designer",
+    "viewCount": "{count, plural, =0 {You are the first view!} =1 {one view} other {{formattedCount} views}}",
+    "likeCount": "{count, plural, =0 {Be the first to like} =1 {one like} other {{formattedCount} likes}}",
+    "date": {
+      "short": {
+        "year": "{year, =1 {1 yr} other {# yrs}}",
+        "month": "{month, =1 {1 mo} other {# mos}}",
+        "day": "{day, =1 {1 day} other {# days}}"
+      },
+      "long": {
+        "year": "{year, =1 {1 year} other {# years}}",
+        "month": "{month, =1 {1 month} other {# months}}",
+        "day": "{day, =1 {1 day} other {# days}}"
+      }
+    },
+    "countries": {
+      "sa": "Saudi Arabia",
+      "eg": "Egypt"
+    },
+    "workModel": {
+      "remote": "Remote",
+      "onsite": "Onsite",
+      "hybrid": "Hybrid"
+    },
+    "months": {
+      "full": {
+        "january": "January",
+        "february": "February",
+        "march": "March",
+        "april": "April",
+        "may": "May",
+        "june": "June",
+        "july": "July",
+        "august": "August",
+        "september": "September",
+        "october": "October",
+        "november": "November",
+        "december": "December"
+      },
+      "short": {
+        "january": "Jan",
+        "february": "Feb",
+        "march": "Mar",
+        "april": "Apr",
+        "may": "May",
+        "june": "Jun",
+        "july": "Jul",
+        "august": "Aug",
+        "september": "Sep",
+        "october": "Oct",
+        "november": "Nov",
+        "december": "Dec"
+      }
+    },
+    "socialMedia": {
+      "linkedin": "linkedin",
+      "github": "github",
+      "email": "email"
+    }
+  },
+  "home": {
+    "metadata": {
+      "description": "I am Frontend Engineer, I work with the React ecosystem. I design and develop responsive and user-friendly user interfaces. I share my thoughts often about web development, JS, TS, React and Next.js.",
+      "keywords": [
+        "Mohamed Ramadan",
+        "Frontend Developer",
+        "UI",
+        "UX Designer",
+        "React",
+        "web development",
+        "JavaScript",
+        "TypeScript",
+        "Next.js",
+        "Egypt",
+        "Mansoura",
+        "Dakahlia",
+        "UI Engineer",
+        "UI/UX",
+        "UI Developer",
+        "Frontend Engineer",
+        "mrgwd"
+      ]
+    },
+    "title": "hey, I'm Mohamed <waving>👋🏻</waving>",
+    "intro": "I am Frontend Engineer and UI UX Designer, I <work>work</work> with the React ecosystem. I design and develop responsive and user-friendly user interfaces. I share my <share>thoughts</share> often about web development, JS, TS, React and Next.js.",
+    "resume": "Resume",
+    "now": {
+      "title": "Now",
+      "content": "<l1>Exploring new opportunities, have a project? <call>Book a call</call> — it's free.</l1> <l2>Developing better habits to replace the (many) old ones, to better myself.</l2> <l3>Trying to achieve my <bucketlist>list of things</bucketlist> I want to achieve/get at least once in life.</l3>"
+    },
+    "recentPosts": {
+      "title": "Recent Posts",
+      "all": "All Posts"
+    }
+  },
+  "work": {
+    "metadata": {
+      "title": "Work",
+      "description": "I started my professional career as a Frontend Developer recently. I have worked on projects and collaborated with awesome teams and people that have helped me grow as a developer and as a person. Here's a summary of my work so far.",
+      "keywords": [
+        "work",
+        "experience",
+        "professional",
+        "career",
+        "projects",
+        "accomplishments",
+        "Frontend Developer",
+        "React",
+        "Next.js",
+        "Web Development"
+      ]
+    },
+    "backlink": "home",
+    "title": "work",
+    "intro": "I started my professional career as a <b>Frontend Developer</b> recently. I have worked on projects and collaborated with awesome teams and people that have helped me grow as a developer and as a person. Here's a summary of my work so far.",
+    "experiences": {
+      "dokan": {
+        "name": "Dokan",
+        "role": "Frontend Engineer",
+        "dateFrom": "2025-06-10",
+        "dateTo": "2025-08-15",
+        "summary": "Dokan, founded in 2019, wanted to build a new version of their Dokan Tip platform, I joined a team of engineers and designers working across web to build the new platform Creators! (~100k MU) with Next.js.",
+        "achievements": [
+          "Shipped and optimized features for high-traffic (+100,000 users) applications with multi-language support.",
+          "Refactored UI components to resolve bugs, improving user experience and interface reliability and integrated REST APIs endpoints and optimized data fetching.",
+          "Collaborated with product managers, designers, and developers across multiple teams and different countries."
+        ]
+      },
+      "athr": {
+        "name": "ATHR",
+        "role": "Frontend Developer & UI/UX Designer",
+        "dateFrom": "2023-03-01",
+        "dateTo": "2024-07-3",
+        "summary": "I joined ATHR as a UI Developer. I was responsible for designing, building and maintaining the user interface of the web application.",
+        "achievements": [
+          "Designed and built responsive, user-friendly interfaces.",
+          "Developed reusable components using React, TypeScript, and Next.js.",
+          "Optimized website performance by reducing load times and page weight.",
+          "Collaborated with back-end developers to integrate front-end and back-end functionality."
+        ],
+        "closing": "During my time at ATHR, I gained my first production experience using React, learned how to work in a team and how to communicate effectively with other team members."
+      }
+    }
+  },
+  "bucket-list": {
+    "metadata": {
+      "title": "Bucket List",
+      "description": "A list of things I want to achieve, experience, and accomplish at least once in my lifetime.",
+      "keywords": [
+        "bucket list",
+        "life goals",
+        "personal goals",
+        "travel",
+        "adventure",
+        "experiences",
+        "achievements",
+        "dreams",
+        "aspirations",
+        "life experiences",
+        "goals",
+        "to-do list"
+      ]
+    },
+    "backlink": "home",
+    "title": "Bucket List",
+    "intro": "A list of things I want to achieve/get at least once in life.",
+    "items": {
+      "speak-at-conference": {
+        "title": "Speak at a Conference"
+      },
+      "speak-in-front-of->100-people": {
+        "title": "Speak in front of >100 people",
+        "description": "Presentation at college."
+      },
+      "write-10-articles": {
+        "title": "Write 10 articles"
+      },
+      "visit-Saudi-Arabia": {
+        "title": "Visit Saudi Arabia",
+        "description": "Specially Mecca and Madinah."
+      },
+      "have-straight-back": {
+        "title": "Have a straight back"
+      },
+      "read-10-books": {
+        "title": "Read 10 books",
+        "description": "Harder than it looks, currently 2/10."
+      },
+      "create-portfolio-website": {
+        "title": "Create portfolio website",
+        "description": "www.mohamedramadan.dev"
+      },
+      "see-northern-lights": {
+        "title": "See northern lights"
+      },
+      "get-muscular-body": {
+        "title": "Get a muscular body"
+      },
+      "underwater-diving": {
+        "title": "Underwater diving"
+      },
+      "exercise-regularly": {
+        "title": "Exercise regularly"
+      },
+      "mentor-someone": {
+        "title": "Mentor someone"
+      }
+    },
+    "progress": "{completed, number} out of {total, number} completed."
+  },
+  "blog": {
+    "metadata": {
+      "title": "Blog",
+      "description": "Tutorials, stories and Thoughts about programming, web development and life.",
+      "keywords": [
+        "blog",
+        "programming",
+        "web development",
+        "Tutorials",
+        "stories",
+        "Thoughts",
+        "Tech",
+        "React",
+        "Next.js",
+        "Tech Blog",
+        "Developer Blog"
+      ]
+    },
+    "backlink": "home",
+    "title": "thoughts",
+    "intro": "Tutorials, stories and Thoughts about programming, web development and life.",
+    "like": {
+      "count": "{count, plural, =0 {Be the first to like} =1 {One person liked it} other {# People liked it}}",
+      "message": "Thank you so much!"
+    },
+    "share": {
+      "ariaLabels": {
+        "copyLink": "Copy article link",
+        "shareOnLinkedIn": "Share on LinkedIn",
+        "shareOnTwitter": "Share on Twitter"
+      },
+      "message": "Was this helpful? Spread the info.",
+      "note": "",
+      "twitter": "I've read this article about \"{title}\"  by @{username}. %0A%0A",
+      "linkedin": "I've read this article about \"{title}\"  by @{username}. %0A%0A"
+    }
+  },
+  "footer": {
+    "bookACall": "Book a call",
+    "sourceCode": "source code",
+    "twitter": "{handle}"
+  },
+  "decoration": {
+    "consoleBanner": {
+      "title": "Interested in the code?",
+      "message": "Check out the repo: {repoUrl} It's open source! 🎉"
+    }
+  },
+  "notFound": {
+    "title": "Page not found!",
+    "returnHome": "Return Home"
+  }
+}
