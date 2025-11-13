@@ -5,10 +5,11 @@ import Decoration from "@/components/decoration/decoration";
 import FallingStars from "@/components/decoration/fallingStars";
 import GTag from "@/scripts/gtag";
 import opengraphImage from "@/app/opengraph-image.jpg";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { ViewTransition } from "react";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -20,6 +21,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale });
 
   return {
@@ -51,12 +53,15 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  const messages = await getMessages();
+  setRequestLocale(locale);
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
 
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
       <body className="overflow-x-hidden antialiased">
-        <NextIntlClientProvider messages={messages} locale={locale}>
+        <NextIntlClientProvider>
           <Decoration>
             <FallingStars />
           </Decoration>
