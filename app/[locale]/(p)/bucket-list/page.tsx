@@ -2,7 +2,8 @@ import List from "@/components/layout/bucket-list/list";
 import HeroSection from "@/components/layout/heroSection";
 import { Metadata } from "next";
 import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { use } from "react";
 
 export async function generateMetadata({
   params,
@@ -10,6 +11,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "bucket-list" });
 
   return {
@@ -27,9 +29,14 @@ export async function generateMetadata({
   };
 }
 
-export default function BucketList() {
+export default function BucketList({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = use(params);
+  setRequestLocale(locale);
   const t = useTranslations("bucket-list");
-
   return (
     <div className="layout space-y-8">
       <HeroSection className="relative">

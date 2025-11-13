@@ -2,8 +2,8 @@ import Experiences from "@/components/layout/work/experiences";
 import HeroSection from "@/components/layout/heroSection";
 import { Metadata } from "next";
 import { useTranslations } from "next-intl";
-import { ViewTransition } from "react";
-import { getTranslations } from "next-intl/server";
+import { use, ViewTransition } from "react";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export async function generateMetadata({
   params,
@@ -11,6 +11,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "work" });
   return {
     title: t("metadata.title"),
@@ -19,7 +20,13 @@ export async function generateMetadata({
   };
 }
 
-export default function Work(): React.JSX.Element {
+export default function Work({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): React.JSX.Element {
+  const { locale } = use(params);
+  setRequestLocale(locale);
   const t = useTranslations("work");
   return (
     <div className="layout space-y-8">
