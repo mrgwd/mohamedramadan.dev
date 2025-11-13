@@ -13,7 +13,7 @@ import { getAllMdxFiles, getMdxSource } from "@/lib/mdx";
 import { notFound } from "next/navigation";
 import { mdxComponents } from "@/mdx-components";
 import { formatDate } from "@/lib/utils";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { incrementView } from "@/lib/actions";
 import { getPostStats } from "@/utils/blog.ts/getPostStats";
@@ -28,6 +28,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const slug = (await params).slug;
   const locale = (await params).locale;
+  setRequestLocale(locale);
+
   const post = await getMdxSource(slug, locale);
   if (!post) {
     return { title: "Not Found" };
@@ -72,10 +74,12 @@ export async function generateStaticParams() {
 export default async function Post({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations();
-  const locale = await getLocale();
   const slug = (await params).slug;
   const post = await getMdxSource(slug, locale);
   const id = post.frontmatter.id;

@@ -1,9 +1,9 @@
 import Posts from "@/components/layout/blog/posts";
 import HeroSection from "@/components/layout/heroSection";
 import { Metadata } from "next";
-import { ViewTransition } from "react";
+import { use, ViewTransition } from "react";
 import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export async function generateMetadata({
   params,
@@ -11,6 +11,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "blog" });
 
   const title = t("metadata.title");
@@ -34,7 +35,13 @@ export async function generateMetadata({
   };
 }
 
-export default function Blog() {
+export default function Blog({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = use(params);
+  setRequestLocale(locale);
   const t = useTranslations("blog");
   return (
     <div className="layout space-y-8">
